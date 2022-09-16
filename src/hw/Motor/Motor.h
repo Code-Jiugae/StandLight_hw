@@ -12,9 +12,11 @@ private:
     int pinNum;
 
 public:
+    bool autoMode;
     Motor(int pinNum);
     ~Motor();
     void PWMWrite(int value);
+    
 
 
 };

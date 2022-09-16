@@ -25,7 +25,6 @@ void Service::updateState(std::string strState)
         break;
 
         case LIGHT_1:
-            printf("LIGHT_1!!!!\n");
             if (strState == "modeButton") {
                 lightState = LIGHT_2;
             }
@@ -107,7 +106,7 @@ void Service::updateState(std::string strState)
 
 void Service::updateDistance(int distance)
 {
-    printf("distance : %d\n", distance);
+    //printf("distance : %d\n", distance);
     
     if(distance < 0)
     {

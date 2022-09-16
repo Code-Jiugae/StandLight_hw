@@ -12,5 +12,4 @@ public:
     int error;
 };
 
-
 #endif /* __DHT_DATA_H__ */

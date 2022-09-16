@@ -4,6 +4,7 @@ Motor::Motor(int pinNum)
 {
     this->pinNum = pinNum;
     softPwmCreate(this->pinNum, 0, 100);
+    autoMode = false;
 }
 
 Motor::~Motor()
