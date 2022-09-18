@@ -16,7 +16,6 @@ public:
     MotorService(MotorView *motorView);
     ~MotorService();
     void updateMotor(std::string strCheck);
-    void updateMotor(bool check);
 };
 
 #endif

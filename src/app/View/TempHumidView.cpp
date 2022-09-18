@@ -17,5 +17,5 @@ void TempHumidView::setTempHumidData(float temp, float humid)
     lcd->WriteStringXY(0, 10, buff);
     sprintf(buff, "%.1f%%", humid);
     lcd->WriteStringXY(1, 10, buff);
-    printf("%.1f'C, %.1f%%\n",temp, humid);
+    // printf("%.1f'C, %.1f%%\n",temp, humid);
 }

@@ -9,11 +9,16 @@ class ClockService
 private:
     time_t curTime;
     ClockView *clockView;
+    int cnt;
+    int restart_cnt;
 
 public:
+    bool timerMode;
     ClockService(ClockView *view);
     virtual ~ClockService();
     void updateEvent();
+    void updateTimerStopStart();
+    void updateTimer();
 };
 
 #endif /* __CLOCKSERVICE_H__ */

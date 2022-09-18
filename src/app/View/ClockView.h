@@ -14,6 +14,7 @@ public:
     ClockView(LCD *lcd);
     virtual ~ClockView();
     void updateTime(struct tm *timeData);
+    void updateTimer(int cnt);
 };
 
 #endif /* __CLOCKVIEW_H__ */

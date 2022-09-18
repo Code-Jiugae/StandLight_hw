@@ -27,11 +27,31 @@ void Controller::updateEvent(std::string strBtn)
     {
         motorService->updateMotor("motorButton");
     }
-    if (strBtn == "clockUpdate")
+    if (strBtn == "timerModeButton")
     {
-        clockService->updateEvent();
+        clockService->timerMode = !(clockService->timerMode);
+        //std::cout << clockService->timerMode << std::endl;
+    }
+    if(clockService->timerMode)
+    {
+        if (strBtn == "timerButton")
+        {
+            clockService->updateTimerStopStart();
+        }
+        else
+        {
+            clockService->updateTimer();
+        }
+    }
+    else
+    {
+        if (strBtn == "clockUpdate")
+        {
+            clockService->updateEvent();
+        }
     }
     
+    //todo 버튼 눌렀을때 clock 모드와 timer모드 변환하기
 }
 
 void Controller::updateTempHumid(DHT_Data dhtData)
@@ -46,5 +66,8 @@ void Controller::updateDistance(int distance)
 
 void Controller::updateMotor(bool onoff)
 {
-    motorService->updateMotor(onoff);
+    if(onoff)
+        motorService->updateMotor("true");
+    else
+        motorService->updateMotor("false");
 }

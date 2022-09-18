@@ -13,19 +13,23 @@ MotorService::~MotorService()
 
 void MotorService::updateMotor(std::string strCheck)
 {
-    cnt++;
-    if(cnt >= 10)  cnt = 0;
-    motorView->updateMotor(cnt*10);
-}
-
-void MotorService::updateMotor(bool check)
-{
-    if(check)
+    if(strCheck == "true")
     {
-        motorView->updateMotor(100);
+        // std::cout <<"here1"<<std::endl;
+        motorView->updateMotor(99);
+    }
+    else if(strCheck == "motorButton")
+    {
+        cnt++;
+        // std::cout <<"here2"<< cnt <<std::endl;
+        if(cnt >= 10)  cnt = 0;
+        motorView->updateMotor(cnt*10);
     }
     else
     {
-        
+        // std::cout <<"here3" << cnt <<std::endl;
+        if(cnt >= 10)  cnt = 0;
+        motorView->updateMotor(cnt*10);
     }
+    
 }

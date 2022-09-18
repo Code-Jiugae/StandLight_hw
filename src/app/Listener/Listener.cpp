@@ -1,8 +1,8 @@
 #include "Listener.h"
 #include <wiringPi.h>
 
-Listener::Listener(Button *modeButton, Button *powerButton, Button *motorButton,
-Controller *control, ClockCheck *clock, DHT11 *dht11, UltraSonic *ultraSonic, Motor *motor)
+Listener::Listener(Button *modeButton, Button *powerButton, Button *motorButton, Button *timerButton, Button *timerModeButton,
+                    Controller *control, ClockCheck *clock, DHT11 *dht11, UltraSonic *ultraSonic, Motor *motor)
 {
     this->modeButton = modeButton;
     this->powerButton = powerButton;
@@ -12,6 +12,8 @@ Controller *control, ClockCheck *clock, DHT11 *dht11, UltraSonic *ultraSonic, Mo
     this->dht11 = dht11;
     this->ultraSonic = ultraSonic;
     this->motor = motor;
+    this->timerButton = timerButton;
+    this->timerModeButton = timerModeButton;
 }
 
 Listener::~Listener()
@@ -34,6 +36,18 @@ void Listener::checkEvent()
     if (motorButton->getState() == RELEASE_ACTIVE)
     {
         controller->updateEvent("motorButton");
+    }
+
+    if (timerButton->getState() == RELEASE_ACTIVE)
+    {
+        // std::cout <<"timerButton" << std::endl;
+        controller->updateEvent("timerButton");
+    }
+
+    if (timerModeButton->getState() == RELEASE_ACTIVE)
+    {
+        // std::cout <<"timerModeButton" << std::endl;
+        controller->updateEvent("timerModeButton");
     }
 
     if (clockCheck->isUpdate())
@@ -59,12 +73,10 @@ void Listener::checkEvent()
 
     if(dht11->pre_Temp > 30)
     {
-        motor->autoMode = true;
         controller->updateMotor(true);
     }
     else
     {
-        motor->autoMode = false;
         controller->updateMotor(false);
     }
 

@@ -17,5 +17,15 @@ void ClockView::updateTime(struct tm *timeData)
             timeData->tm_hour,
             timeData->tm_min,
             timeData->tm_sec);
+    lcd->WriteStringXY(1, 0, "        ");
     lcd->WriteStringXY(1, 0, buff);
 }
+
+void ClockView::updateTimer(int cnt)
+{
+    char buff[30];
+    sprintf(buff, "%d", cnt);
+    lcd->WriteStringXY(1, 0, "        ");
+    lcd->WriteStringXY(1, 0, buff);
+}
+

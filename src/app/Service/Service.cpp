@@ -28,79 +28,39 @@ void Service::updateState(std::string strState)
             if (strState == "modeButton") {
                 lightState = LIGHT_2;
             }
-            if (strState == "powerButton") {
-                lightState = LIGHT_OFF;
-            }
-            if(bDistacneLight)
-            {
-                view->setState(lightState);
-            }
-            else
-            {
-                view->setState(LIGHT_OFF);
-            }
-            // view->setState(lightState);
         break;
         case LIGHT_2:
             if (strState == "modeButton") {
                 lightState = LIGHT_3;
             }
-            if (strState == "powerButton") {
-                lightState = LIGHT_OFF;
-            }
-            view->setState(lightState);
         break;
         case LIGHT_3:
             if (strState == "modeButton") {
                 lightState = LIGHT_4;
             }
-            if (strState == "powerButton") {
-                lightState = LIGHT_OFF;
-            }
-            if(bDistacneLight)
-            {
-                view->setState(lightState);
-            }
-            else
-            {
-                view->setState(LIGHT_OFF);
-            }
-            // view->setState(lightState);
         break;
         case LIGHT_4:
             if (strState == "modeButton") {
                 lightState = LIGHT_5;
             }
-            if (strState == "powerButton") {
-                lightState = LIGHT_OFF;
-            }
-            if(bDistacneLight)
-            {
-                view->setState(lightState);
-            }
-            else
-            {
-                view->setState(LIGHT_OFF);
-            }
-            // view->setState(lightState);
         break;
         case LIGHT_5:
             if (strState == "modeButton") {
                 lightState = LIGHT_OFF;
             }
-            if (strState == "powerButton") {
-                lightState = LIGHT_OFF;
-            }
-            if(bDistacneLight)
-            {
-                view->setState(lightState);
-            }
-            else
-            {
-                view->setState(LIGHT_OFF);
-            }
-            // view->setState(lightState);
         break;
+    }
+    if (strState == "powerButton")
+    {
+        lightState = LIGHT_OFF;
+    }
+    if(bDistacneLight)
+    {
+        view->setState(lightState);
+    }
+    else
+    {
+        view->setState(LIGHT_OFF);
     }
 }
 

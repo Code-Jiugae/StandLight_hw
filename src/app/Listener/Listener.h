@@ -15,6 +15,8 @@ private :
     Button *modeButton;
     Button *powerButton;
     Button *motorButton;
+    Button *timerButton;
+    Button *timerModeButton;
     ClockCheck *clockCheck;
     Controller *controller;
     DHT11 *dht11;
@@ -22,7 +24,7 @@ private :
     Motor *motor;
 
 public:
-    Listener(Button *modeButton, Button *powerButton, Button *motorButton,
+    Listener(Button *modeButton, Button *powerButton, Button *motorButton, Button *timerButton, Button *timerModeButton,
              Controller *control, ClockCheck *clock, DHT11 *dht11, UltraSonic *ultraSonic, Motor *motor);
     ~Listener();
     void checkEvent();

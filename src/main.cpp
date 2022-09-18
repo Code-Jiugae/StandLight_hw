@@ -22,6 +22,8 @@ int main()
 {
     std::cout << "Hello World!" << std::endl;
 
+    Button timerModeButton(1);
+    Button timerButton(6);
     Button modeButton(27);
     Button powerButton(28);
     Button motorButton(29);
@@ -46,7 +48,7 @@ int main()
     TempHumidService tempHumidService(&tempHumidView);
     MotorService motorService(&motorView);
     Controller control(&service, &clockSerivce, &tempHumidService, &motorService);
-    Listener listener(&modeButton, &powerButton, &motorButton, &control, &clockCheck, &dht, &ultraSonic, &motor);
+    Listener listener(&modeButton, &powerButton, &motorButton, &timerButton, &timerModeButton, &control, &clockCheck, &dht, &ultraSonic, &motor);
     
     
     while (1)
@@ -54,7 +56,7 @@ int main()
         listener.checkEvent();
         view.lightView();
         
-        delay(10);
+        //delay(10);
     }
 
     return 0;
