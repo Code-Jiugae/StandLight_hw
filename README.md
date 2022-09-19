@@ -9,7 +9,8 @@
 - 초음파 센서
 
 # 소프트웨어 구조 설계 다이어그램
-![0916_hw](https://user-images.githubusercontent.com/113006222/190570306-2dfbde78-66c4-45be-ad4a-610f5e9fdcd2.png)
+![0916_hw](https://user-images.githubusercontent.com/113006222/190934630-af7ef4c9-7d68-4ef4-8f4d-725c366439ce.png)
+
 
 # 동작
 
